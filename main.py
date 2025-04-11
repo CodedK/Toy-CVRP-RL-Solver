@@ -1,17 +1,23 @@
-import sys
 import os
-import matplotlib.pyplot as plt
+import sys
 from pathlib import Path
-from rl.env import CVRPEnv
-from src.rl.q_learning import QLearningAgent
-from src.utils import parse_vrp_file, parse_solution_file, plot_route
-import time
-from scipy.spatial import distance
-import json
-from termcolor import fg, attr
+
+import matplotlib.pyplot as plt
 
 # Add the src directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
+sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
+
+import json
+import time
+
+from scipy.spatial import distance
+from termcolor import colored
+
+from rl.env import CVRPEnv
+from src.rl.q_learning import QLearningAgent
+from src.utils import parse_solution_file, parse_vrp_file, plot_route
+
 
 # Load configuration from the rl folder
 config_path = Path(__file__).resolve().parent / "rl" / "config.json"
@@ -23,7 +29,7 @@ n_episodes = config["n_episodes"]
 learning_rate = config["learning_rate"]
 discount_factor = config["discount_factor"]
 
-print(f"{fg('green')}Starting CVRP solver...{attr('reset')}")
+print(colored("Starting CVRP solver...", "green"))
 
 # Get the project root directory (parent of src)
 project_root = Path(__file__).resolve().parent.parent
