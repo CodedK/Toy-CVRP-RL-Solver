@@ -1,13 +1,17 @@
-import matplotlib.pyplot as plt
 import sys
+import os
+import matplotlib.pyplot as plt
 from pathlib import Path
-from src.rl.env import CVRPEnv
+from rl.env import CVRPEnv
 from src.rl.q_learning import QLearningAgent
 from src.utils import parse_vrp_file, parse_solution_file, plot_route
 import time
 from scipy.spatial import distance
 import json
 from termcolor import fg, attr
+
+# Add the src directory to the Python path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
 
 # Load configuration from the rl folder
 config_path = Path(__file__).resolve().parent / "rl" / "config.json"

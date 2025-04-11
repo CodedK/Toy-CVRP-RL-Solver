@@ -2,6 +2,10 @@ from src.utils import euclidean_distance
 import json
 from pathlib import Path
 import matplotlib.pyplot as plt
+from colored import fg, attr
+
+# Define project_root based on the current file's location
+project_root = Path(__file__).resolve().parent.parent
 
 # Load configuration
 config_path = Path(__file__).resolve().parent / "config.json"

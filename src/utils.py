@@ -2,6 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from colored import fg, attr
+import sys
+import os
+
+# Add the src directory to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "src")))
+
+from rl.env import CVRPEnv
+from src.rl.q_learning import QLearningAgent
+from src.utils import parse_vrp_file, parse_solution_file, plot_route
 
 
 def euclidean_distance(point1, point2):

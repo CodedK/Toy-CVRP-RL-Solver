@@ -10,12 +10,13 @@ Toy-CVRP-RL-Solver/
 │   └── vrp/                    # VRP instance files
 ├── src/
 │   ├── __init__.py
-│   ├── main.py                # Main script to run the RL solver
 │   ├── utils.py               # Utility functions (parsing, plotting, etc.)
 │   └── rl/                    # Reinforcement Learning components
 │       ├── __init__.py
 │       ├── env.py             # CVRP environment implementation
-│       └── q_learning.py      # Q-Learning agent implementation
+│       ├── q_learning.py      # Q-Learning agent implementation
+│       └── config.json        # Configuration file for RL parameters
+├── main.py                    # Main script to run the RL solver
 └── tests/                     # Test files (to be implemented)
 ```
 
@@ -62,10 +63,13 @@ The script will:
 ## Visualization
 
 The visualization includes:
-- Learned route plot
-- Total distance
-- Individual route distances
-- Comparison with optimal solution (when available)
+- **Learned Route Plot**: Displays the route found by the RL agent, with nodes and paths clearly marked.
+- **Total Distance**: Shows the total distance of the learned route.
+- **Individual Route Distances**: Breaks down the distance for each route segment.
+- **Comparison with Optimal Solution**: If an optimal solution is available, the plot will compare the learned route against the optimal route, highlighting any gaps in performance.
+- **Route Animation**: An optional animation can be generated to visualize the step-by-step construction of the route by the RL agent.
+
+The visualization is saved as `cvrp_rl_comparison.png` in the project directory.
 
 ## Example
 
